@@ -1,0 +1,121 @@
+$xs-width: 768px;
+$sm-width: 992px;
+$md-width: 1024px;
+$lg-width: 1200px;
+
+@mixin extraSmallDevices {
+  @media (max-width: #{$xs-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin smallDevices {
+  @media (min-width: #{$xs-width}) and (max-width: #{$sm-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin mediumDevices {
+  @media (min-width: #{$sm-width}) and (max-width: #{$md-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin largeDevices {
+  @media (min-width: #{$md-width}) {
+    @content;
+  }
+}
+
+
+.thumbnails {
+  .item {
+    margin-top: 1px;
+    margin-bottom: 1px;
+    padding-right: 1px;
+    padding-left: 1px;
+
+    &.col-xs-4 .thumbnail .caption,
+    &.col-sm-3 .thumbnail .caption {
+      padding: 0;
+
+      h4 {
+        @include extraSmallDevices {
+          margin-top: 5px;
+          margin-bottom: 5px;
+          font-size: 12px;
+        }
+
+        @include smallDevices {
+          margin-top: 5px;
+          margin-bottom: 5px;
+          font-size: 12px;
+        }
+      }
+    }
+
+    &.col-md-3 .thumbnail .caption h4 {
+      @include mediumDevices {
+        margin-top: 7px;
+        margin-bottom: 7px;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .thumbnail {
+    display: block;
+    position: inherit;
+
+    .caption {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+
+      h4 {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.fotorama .loader-inner {
+  margin: 25% auto 0 auto;
+}
+
+.fotorama__arr {
+  width: 50px;
+  height: 100%;
+  top: 0;
+  margin-top: 0;
+  background: none;
+}
+
+.fotorama__fullscreen-icon {
+  width: 80%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  left: 10%;
+  background: none;
+}
+
+.fetch-more {
+  margin-top: 1em;
+  border: 1px solid #fff;
+  border-radius: 0;
+  background-color: transparent;
+
+  &:hover {
+    color: black;
+    background-color: white;
+  }
+}
+
+/* 배너 위치 교정 */
+@media only screen and (min-width: 1025px) {
+  .banner__left-wing {
+    margin-right: 545px;
+  }
+}

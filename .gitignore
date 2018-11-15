@@ -1,0 +1,13 @@
+.env
+/.env
+/manifest.json
+/index.html
+/folderimage.jpg
+/index.html.bak
+/album.json
+/composer.lock
+/2015
+/data
+/vendor
+/storage
+/public/data
